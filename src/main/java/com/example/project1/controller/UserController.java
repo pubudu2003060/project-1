@@ -1,5 +1,7 @@
-package com.example.project1;
+package com.example.project1.controller;
 
+import com.example.project1.User;
+import com.example.project1.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
