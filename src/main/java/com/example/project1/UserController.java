@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("users/")
 public class UserController {
 
@@ -42,6 +43,18 @@ public class UserController {
         currentUser.setEmail(user.getEmail());
         currentUser.setStatus(user.getStatus());
         return ResponseEntity.ok(userRepository.save(currentUser));
+    }
+
+    @DeleteMapping("/deleteuser/{id}")
+    public User deleteUSer(@PathVariable("id") int id){
+
+        User user = userRepository.findById(id).orElse(null);
+
+        User deleteuser = user;
+
+        userRepository.delete(user);
+
+        return deleteuser;
     }
 
 
